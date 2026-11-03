@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f9fe" />
+  <meta name="description" content="Explore an interactive regional manufacturing map and discover product capabilities by continent." />
+  <title>Global Product Network | MESHTEC Concept</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="MESHTEC demo home">
+      <img class="brand-logo-image" src="meshtec-logo.svg" alt="MESHTEC Security Innovation Technologies" />
+    </a>
+    <div class="header-divider"></div><div class="header-subtitle">GLOBAL PRODUCT NETWORK</div>
+    <nav class="desktop-nav" aria-label="Primary navigation"><a href="#explore">Explore map</a><a href="#regional-products">Regional products</a></nav>
+    <a class="header-cta" href="mailto:sales@example.com?subject=Regional%20product%20enquiry" title="Demo contact link; replace before launch">Contact sales <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="home" class="page-shell">
+    <section class="hero"><div class="hero-copy">
+      <div class="eyebrow"><span class="eyebrow-icon">◎</span> GLOBAL SPECIFIER REGISTRY <span class="eyebrow-slash">/</span> PROJECT MAP</div>
+      <h1>Global Reach.<br><span>Local Expertise.</span></h1>
+      <p>Discover our global network across 25+ countries, regional service locations and product solutions.</p>
+    </div><div class="hero-aside"><div class="hero-stat"><span class="pulse-dot"></span> 25+ COUNTRIES <span class="stat-append">GLOBAL NETWORK</span></div><p>Select a continent on the map or use the region tabs below.</p></div></section>
+    <section id="explore" class="explorer" aria-label="Interactive global product map">
+      <div class="explorer-top"><div class="section-caption"><span class="section-number">01</span> EXPLORE BY REGION</div><div class="region-tabs" id="regionTabs" role="group" aria-label="Choose region"></div></div>
+      <div class="explorer-grid">
+        <div class="map-card"><div class="map-toolbar"><span>WORLDWIDE PRODUCT NETWORK</span><span class="map-toolbar-right"><span class="small-circle"></span> SELECT A CONTINENT</span></div>
+          <div class="world-map-wrap"><svg id="worldMap" class="world-map" viewBox="0 0 1100 540" role="group" aria-label="Interactive map of the world. Select a continent to see regional product details.">
+            <defs><pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".8" fill="#284257" opacity=".52"/></pattern><linearGradient id="activeFill" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#184e86"/><stop offset="1" stop-color="#0e2a47"/></linearGradient><filter id="nodeGlow"><feGaussianBlur stdDeviation="7"/></filter></defs>
+            <rect width="1100" height="540" fill="url(#dotGrid)" opacity=".18"/>
+            <g id="mapRoutes" class="route-lines" aria-hidden="true"></g><g id="mapShapes"></g><g id="mapMarkers"></g>
+          </svg></div>
+          <div class="map-footer"><div><span class="coord-icon">⌖</span> GLOBAL OVERVIEW <span class="muted-line">|</span> WGS-84</div><div class="legend"><span><i class="legend-dot"></i> REGION</span><span><i class="legend-selected"></i> SELECTED</span></div></div>
+        </div>
+        <aside class="detail-card" id="regional-products" aria-label="Selected region product details" aria-live="polite">
+          <div id="detailContent"></div>
+        </aside>
+      </div>
+
+    </section>
+    <footer class="footer"><div><span class="footer-symbol">◎</span> MESHTEC <span class="footer-separator">/</span> INTERACTIVE PRODUCT NETWORK</div><span>Network directory from MESHTEC brochure · Product descriptions are illustrative</span></footer>
+  </main>
+    <script src="map-paths.js"></script><script src="app.js"></script>
+</body>
+</html>
