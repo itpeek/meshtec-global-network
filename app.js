@@ -309,7 +309,7 @@ function renderDetail() {
     <div class="facts">
       <div class="fact"><span class="fact-symbol">◎</span><span class="meta-label">MARKETS</span><div class="fact-value">${escapeHtml(region.markets)}</div></div>
       <div class="fact"><span class="fact-symbol">▥</span><span class="meta-label">FOCUS</span><div class="fact-value">${escapeHtml(region.focus)}</div></div>
-      <div class="fact"><span class="fact-symbol">◇</span><span class="meta-label">STANDARDS</span><div class="fact-value">${escapeHtml(region.standards)}</div></div>
+      <div class="fact"><span class="fact-symbol">◇</span><span class="meta-label">PRODUCT RANGE</span><div class="fact-value">${products.length} ${products.length === 1 ? "category" : "categories"}</div></div>
     </div>`;
 
   detail.querySelectorAll('[data-country]').forEach(button=>{
