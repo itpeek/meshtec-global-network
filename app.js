@@ -49,14 +49,26 @@ const REGIONS = {
       {name:'Custom Facade Components',icon:'⚙',description:'Custom mesh assemblies for diverse architecture and project conditions.',applications:['Facade retrofits','Design features','Screening']}
     ]
   },
-  'middle-east-africa':{
-    name:'Middle East & Africa', short:'MEA', code:'EMEA-MEA', icon:'◉',
-    description:'Explore sample mesh solutions suitable for large-scale facade, hospitality and public-realm design.',
-    markets:'GCC, North Africa, Sub-Saharan Africa', focus:'Sun shading & design', standards:'Project-specific',
-    node:[558,318], label:[549,357],
+  'middle-east':{
+    name:'Middle East', short:'ME', code:'ME', icon:'◉',
+    description:'Explore illustrative mesh solutions for architectural, commercial and hospitality projects across the Middle East.',
+    markets:'United Arab Emirates and wider Middle East (inquiry-based)', focus:'Architectural screening', standards:'Project-specific',
+    node:[685,245], label:[720,281],
+    products:[
+      {name:'Architectural Solar Screens',icon:'☼',description:'Mesh screening concepts for building facades and shading applications.',applications:['Sun shading','Building facades','Hospitality projects']},
+      {name:'Decorative Metal Mesh',icon:'▦',description:'Design-focused mesh concepts for exterior and interior architectural spaces.',applications:['Hospitality interiors','Facade features','Architectural screening']},
+      {name:'Security & Privacy Screens',icon:'⬡',description:'Project-specific mesh screening concepts for privacy and security.',applications:['Privacy screening','Security applications','Exterior enclosures']},
+      {name:'Infrastructure Mesh Panels',icon:'✚',description:'Mesh-panel concepts suitable for public-facing infrastructure applications.',applications:['Transport facilities','Public buildings','Service enclosures']}
+    ]
+  },
+  africa:{
+    name:'Africa', short:'AFR', code:'AFR', icon:'◈',
+    description:'Explore illustrative architectural mesh, facade and infrastructure solutions for network locations across Africa.',
+    markets:'Sub-Saharan Africa and Indian Ocean locations', focus:'Exterior mesh & infrastructure', standards:'Project-specific',
+    node:[566,343], label:[560,380],
     products:[
       {name:'Architectural Solar Screens',icon:'☼',description:'Mesh screen systems that can support exterior shading and facade concepts.',applications:['Sun shading','Building facades','Hospitality projects']},
-      {name:'Decorative Metal Mesh',icon:'▦',description:'Decorative woven mesh concepts for design-led public and private spaces.',applications:['Luxury hospitality','Retail architecture','Feature ceilings']},
+      {name:'Decorative Metal Mesh',icon:'▦',description:'Decorative woven mesh concepts for design-led public and private spaces.',applications:['Hospitality projects','Retail architecture','Feature ceilings']},
       {name:'Perimeter & Security Screens',icon:'⬡',description:'Mesh screen applications for perimeter, privacy and project-specific security use.',applications:['Privacy screening','Secure areas','Service zones']},
       {name:'Infrastructure Mesh Panels',icon:'✚',description:'Mesh panels for civic architecture and public infrastructure designs.',applications:['Transport hubs','Public facilities','Service enclosures']}
     ]
@@ -67,11 +79,11 @@ const REGIONS = {
    Entries are network labels, NOT claims of factories or SKU availability. */
 const NETWORK_LOCATIONS=[
 ['US','United States','north-america',204,213],['CA','Canada','north-america',230,159],['MX','Mexico','north-america',222,260],['HI','Hawaii','north-america',91,259],['CB','Caribbean','north-america',296,282],
-['AE','United Arab Emirates','middle-east-africa',652,265],['GH','Ghana','middle-east-africa',509,317],['NG','Nigeria','middle-east-africa',546,319],['UG','Uganda','middle-east-africa',596,337],['KE','Kenya','middle-east-africa',619,346],['TZ','Tanzania','middle-east-africa',608,366],['MW','Malawi','middle-east-africa',615,392],['ZM','Zambia','middle-east-africa',585,396],['ZW','Zimbabwe','middle-east-africa',594,419],['BW','Botswana','middle-east-africa',566,433],['NA','Namibia','middle-east-africa',543,431],['ZA','South Africa','middle-east-africa',567,463],['LS','Lesotho','middle-east-africa',581,455],['MZ','Mozambique','middle-east-africa',618,422],['SZ','Eswatini (Swaziland)','middle-east-africa',600,444],['MU','Mauritius','middle-east-africa',677,423],
+['AE','United Arab Emirates','middle-east',652,265],['GH','Ghana','africa',509,317],['NG','Nigeria','africa',546,319],['UG','Uganda','africa',596,337],['KE','Kenya','africa',619,346],['TZ','Tanzania','africa',608,366],['MW','Malawi','africa',615,392],['ZM','Zambia','africa',585,396],['ZW','Zimbabwe','africa',594,419],['BW','Botswana','africa',566,433],['NA','Namibia','africa',543,431],['ZA','South Africa','africa',567,463],['LS','Lesotho','africa',581,455],['MZ','Mozambique','africa',618,422],['SZ','Eswatini (Swaziland)','africa',600,444],['MU','Mauritius','africa',677,423],
 ['IN','India','asia-pacific',735,285],['CN','China','asia-pacific',821,223],['TH','Thailand','asia-pacific',781,283],['VN','Vietnam','asia-pacific',806,284],['MY','Malaysia','asia-pacific',786,331],['SG','Singapore','asia-pacific',795,343],['PH','Philippines','asia-pacific',853,294],['JP','Japan','asia-pacific',919,218],['PI','Pacific Islands','asia-pacific',1017,341],['AU','Australia','asia-pacific',902,432],['NZ','New Zealand','asia-pacific',1000,465]
 ].map(([code,name,region,x,y])=>({code,name,region,x,y}));
 
-const ORDER = ['all','asia-pacific','europe','north-america','south-america','middle-east-africa'];
+const ORDER = ['all','asia-pacific','europe','north-america','south-america','middle-east','africa'];
 const mapShapes = document.getElementById('mapShapes');
 const mapMarkers = document.getElementById('mapMarkers');
 const mapRoutes = document.getElementById('mapRoutes');
