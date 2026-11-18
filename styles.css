@@ -214,3 +214,98 @@ button:focus-visible,a:focus-visible,.map-region:focus-visible,.map-node:focus-v
 .country-clear{font-family:var(--sans);border:0;background:transparent;color:#34349f;cursor:pointer;padding:4px 0;font-size:11px;text-decoration:underline;text-underline-offset:2px}
 .country-clear:hover{color:#1b226e}
 .market-pills{margin-bottom:10px}
+
+/* MESHTEC reference mockup — 2026-11-18: compact editorial layout.
+   Match the supplied desktop screenshot without removing country/product interactions. */
+:root{
+  --bg:#ffffff;--surface:#ffffff;--surface-2:#fafafa;
+  --border:#ebebeb;--text:#252525;--muted:#919191;
+  --blue:#2e3192;--cyan:#2e3192;--green:#2e3192;
+  --sans:"LINE Seed Sans","Noto Sans Thai",Arial,sans-serif;
+}
+html,body{background:#fff;color:#262626}
+.ambient,.site-header,.footer,.map-toolbar,.map-footer,.section-caption{display:none!important}
+.page-shell{width:74%;max-width:1120px;padding:0;margin:0 auto}
+.hero{padding:57px 0 11px;align-items:flex-end;gap:32px}
+.hero-copy{max-width:520px}
+.eyebrow{font-family:var(--sans);font-weight:500;font-size:9px;letter-spacing:.6px;color:#30368e;margin-bottom:9px}
+.eyebrow-icon,.eyebrow-slash{display:none!important}
+.eyebrow:before{content:"";display:inline-block;width:13px;height:2px;background:#ed3342;vertical-align:middle;margin-right:7px}
+.hero h1{font-family:var(--sans);text-transform:uppercase;font-size:clamp(30px,3.25vw,47px);line-height:1.1;letter-spacing:-1.6px;font-weight:800;margin:0 0 9px;color:#2e3192}
+.hero h1 span{color:#2e3192}
+.hero-copy>p{font-size:clamp(10px,1.1vw,14px);color:#393939;line-height:1.45;max-width:490px}
+.hero-aside{width:32.5%;min-width:245px;padding:9px 0 10px;border-color:#ededed}
+.hero-stat{color:#262626;font-family:var(--sans);font-size:clamp(13px,1.48vw,19px);font-weight:400;letter-spacing:-.2px;gap:8px;white-space:nowrap}
+.hero-stat .pulse-dot{display:none}
+.stat-append{font:clamp(8px,.9vw,12px) var(--sans);letter-spacing:0;color:#30368e;margin-left:7px}
+.stat-append:before{content:"◎";font-size:14px;margin-right:5px;vertical-align:-1px}
+.hero-aside p{color:#555;font-size:clamp(9px,.86vw,12px);line-height:1.4;margin:5px 0 0}
+.explorer-top{display:block;margin:0 0 10px}
+.region-tabs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));padding:4px;gap:1px;width:100%;border:1px solid #e9e9e9;background:#fff;border-radius:0}
+.region-tab{min-width:0;padding:9px 3px;color:#999;background:transparent;font:clamp(8px,.85vw,12px) var(--sans);font-weight:400;letter-spacing:0;border-radius:0;white-space:nowrap}
+.region-tab:hover{background:#f5f5fa;color:#2e3192}
+.region-tab[aria-pressed=true]{background:#2e3192;color:#fff;box-shadow:none}
+.explorer-grid{display:grid;grid-template-columns:minmax(0,1.42fr) minmax(0,1fr);gap:10px;align-items:stretch}
+.map-card,.detail-card{height:clamp(286px,28.3vw,430px)!important;min-height:0!important;border:1px solid #ededed;background:#fff!important;border-radius:0;box-shadow:none;padding:0}
+.world-map-wrap{width:100%;height:100%;min-height:0!important;padding:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.world-map{width:100%;height:100%;max-height:none;min-width:0;overflow:visible}
+.world-map>rect{display:none}
+.map-region,.map-region.active,.map-region.dimmed{fill:#e4e4e4;stroke:#fff;stroke-width:1.25;opacity:1;filter:none}
+.map-region:hover,.map-region:focus-visible{fill:#cfd1e9;stroke:#fff;stroke-width:1.25}
+.map-node .node-halo,.route-lines{display:none}
+.map-node .node-outer,.map-node.active .node-outer{fill:#fff;stroke:#bcbcbc;stroke-width:1.8}
+.map-node .node-inner,.map-node.active .node-inner{fill:#858585}
+.map-node .node-label-bg,.map-node.active .node-label-bg{fill:#fff;stroke:#cdcdcd;stroke-width:.9}
+.map-node .node-label,.map-node.active .node-label{fill:#383838;font:600 11px var(--sans);letter-spacing:0}
+.detail-card{overflow:hidden}
+.detail-card>#detailContent{height:100%;padding:14px 14px 16px;overflow-y:auto}
+.detail-top{border:0;padding:0;min-height:0}
+.detail-kicker{font:500 9px var(--sans);letter-spacing:.35px;color:#2d3090}
+.detail-kicker .pulse-dot{display:inline-block;border-radius:0;width:12px;height:2px;background:#ef3645;box-shadow:none;vertical-align:middle;margin-right:5px}
+.region-code{display:none}
+.all-placeholder{justify-content:center;min-height:calc(100% - 24px)}
+.region-heading.region-heading-clean{margin:0 0 6px}
+.region-heading h2{font:800 clamp(16px,1.6vw,23px) var(--sans);text-transform:uppercase;letter-spacing:-.3px;color:#2a2a2a}
+.all-intro,.region-description{color:#969696;font-size:clamp(10px,1vw,13px);line-height:1.6;margin:0}
+.all-summary-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:12px 0 0}
+.summary-chip{border:1px solid #ededed;background:#fff;padding:8px 9px;border-radius:0;color:#2e3192;min-height:53px}
+.summary-chip:hover{background:#f8f8fd;border-color:#c8c8db}
+.summary-chip strong{font:600 clamp(9px,.85vw,12px) var(--sans);text-transform:uppercase;color:#2d3192;letter-spacing:0;margin:0 0 5px}
+.summary-chip span{font:400 clamp(9px,.78vw,11px) var(--sans);letter-spacing:0;color:#333;text-transform:capitalize}
+.product-section-title{font-family:var(--sans);color:#343434}
+.product-glyph{display:inline-flex;align-items:center;justify-content:center;min-width:24px;color:#2e3192}
+.perforated-icon{display:block;width:22px;height:22px;flex:0 0 22px}
+.product-row{gap:10px}
+.product-list{gap:6px}
+.product-accordion{border-radius:0}
+.market-pill,.country-context{border-radius:2px}
+.facts{border-radius:2px}
+@media(min-width:901px) and (max-width:1200px){.map-card,.detail-card{height:clamp(286px,28.3vw,430px)!important}}
+@media(max-width:900px){
+  .page-shell{width:90%;max-width:720px}
+  .hero{padding-top:32px}
+  .hero-aside{min-width:200px}
+  .explorer-grid{grid-template-columns:1fr}
+  .map-card{height:380px!important}
+  .detail-card{height:430px!important}
+  .region-tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:2px}
+  .region-tab{font-size:10px}
+  .all-summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .summary-chip strong{font-size:11px}
+  .summary-chip span{font-size:10px}
+}
+@media(max-width:600px){
+  .page-shell{width:auto;margin:0 16px;max-width:none}
+  .hero{display:block;padding-top:28px;padding-bottom:14px}
+  .hero h1{font-size:34px}
+  .hero-copy>p{font-size:12px}
+  .hero-aside{width:100%;margin-top:21px;padding:10px 0}
+  .hero-stat{font-size:16px}
+  .region-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .region-tab{font-size:10px;padding:10px}
+  .map-card{height:270px!important}
+  .detail-card{height:min(520px,75dvh)!important;min-height:320px!important}
+  .all-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .detail-card>#detailContent{padding:14px}
+  .region-heading h2{font-size:19px}
+}
