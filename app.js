@@ -153,11 +153,11 @@ function makeMap() {
     svg('circle', { cx: x, cy: y, r: 10, class: 'node-outer' }, marker);
     svg('circle', { cx: x, cy: y, r: 4.2, class: 'node-inner' }, marker);
 
-    const width = Math.max(88, region.name.length * 7.1 + 24);
+    const width = Math.max(114, region.name.length * 10.4 + 30);
     const lx = Math.min(1100 - width, Math.max(0, region.label[0] - width / 2));
     const ly = region.label[1];
-    svg('rect', { x: lx, y: ly - 17, width, height: 27, rx: 5, class: 'node-label-bg' }, marker);
-    const text = svg('text', { x: lx + width / 2, y: ly + 1, 'text-anchor': 'middle', class: 'node-label' }, marker);
+    svg('rect', { x: lx, y: ly - 23, width, height: 35, rx: 5, class: 'node-label-bg' }, marker);
+    const text = svg('text', { x: lx + width / 2, y: ly, 'text-anchor': 'middle', class: 'node-label' }, marker);
     text.textContent = region.name.toUpperCase();
 
     marker.addEventListener('click', () => select(id));
