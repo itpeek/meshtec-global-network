@@ -28,7 +28,7 @@
       <div class="explorer-top"><div class="section-caption"><span class="section-number">01</span> EXPLORE BY REGION</div><div class="region-tabs" id="regionTabs" role="group" aria-label="Choose region"></div></div>
       <div class="explorer-grid">
         <div class="map-card"><div class="map-toolbar"><span>WORLDWIDE PRODUCT NETWORK</span><span class="map-toolbar-right"><span class="small-circle"></span> SELECT A CONTINENT</span></div>
-          <div class="world-map-wrap"><div id="meshtecGlobe" class="meshtec-globe" aria-label="Interactive 3D world globe; drag to rotate and use mousewheel or buttons to zoom"></div><div class="globe-controls" aria-label="Globe controls"><button type="button" data-globe-zoom="in" aria-label="Zoom in">+</button><button type="button" data-globe-zoom="out" aria-label="Zoom out">−</button><button type="button" data-globe-zoom="reset" aria-label="Reset globe view" title="Reset view">⌖</button></div><svg id="worldMap" class="world-map" viewBox="0 0 1100 540" role="group" aria-label="Interactive map of the world. Select a continent to see regional product details.">
+          <div class="world-map-wrap"><svg id="worldMap" class="world-map" viewBox="0 0 1100 540" role="group" aria-label="Interactive map of the world. Select a continent to see regional product details.">
             <defs><pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".8" fill="#284257" opacity=".52"/></pattern><linearGradient id="activeFill" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#184e86"/><stop offset="1" stop-color="#0e2a47"/></linearGradient><filter id="nodeGlow"><feGaussianBlur stdDeviation="7"/></filter></defs>
             <rect width="1100" height="540" fill="url(#dotGrid)" opacity=".18"/>
             <g id="mapRoutes" class="route-lines" aria-hidden="true"></g><g id="mapShapes"></g><g id="mapMarkers"></g>
@@ -43,6 +43,6 @@
     </section>
     <footer class="footer"><div><span class="footer-symbol">◎</span> MESHTEC <span class="footer-separator">/</span> INTERACTIVE PRODUCT NETWORK</div><span>Network directory from MESHTEC brochure · Product descriptions are illustrative</span></footer>
   </main>
-    <script src="map-paths.js"></script><script src="app.js"></script><script defer src="https://cdn.jsdelivr.net/npm/globe.gl@2/dist/globe.gl.min.js" onload="window.dispatchEvent(new Event('meshtec:globe-library-ready'))"></script><script src="globe.js" defer></script>
+    <script src="map-paths.js"></script><script src="app.js"></script>
 </body>
 </html>
