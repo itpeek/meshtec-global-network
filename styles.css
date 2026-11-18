@@ -341,3 +341,67 @@ html,body{background:#fff;color:#262626}
  .globe-controls{bottom:9px;right:9px}
  .globe-controls button{width:28px;height:28px}
 }
+
+
+/* SVG map restoration: large, readable 2D world map in the current white UI. */
+.page-shell{width:94%;max-width:1550px;margin-inline:auto}
+.hero{padding-top:42px;padding-bottom:19px}
+.hero h1{font-size:clamp(37px,3.6vw,53px)}
+.hero-copy>p{font-size:clamp(13px,1vw,16px)}
+.hero-aside{width:31%}
+.region-tab{font-size:clamp(11px,.92vw,14px);padding:12px 6px}
+.explorer-grid{grid-template-columns:minmax(0,1.65fr) minmax(370px,1fr);gap:16px}
+.map-card,.detail-card{height:clamp(465px,40vw,630px)!important}
+.world-map-wrap{display:flex!important;align-items:center;justify-content:center;overflow:hidden!important;padding:6px!important}
+.world-map{display:block!important;width:100%!important;height:100%!important;max-height:none!important;min-width:0!important;overflow:visible!important;visibility:visible!important;pointer-events:auto!important}
+.map-region{fill:#e0e2e6;stroke:#fff;stroke-width:1.35;cursor:pointer;transition:fill .2s,stroke .2s}
+.map-region.active{fill:#353da9!important;stroke:#fff!important;opacity:1!important}
+.map-region.dimmed{opacity:1!important}
+.map-region:hover,.map-region:focus-visible{fill:#9ea8d6!important;stroke:#fff!important}
+.map-node .node-halo{display:block;opacity:.14}
+.map-node .node-outer,.map-node.active .node-outer{stroke-width:2.2}
+.map-node .node-inner{fill:#66718a}
+.map-node .node-label-bg{fill:#fff;stroke:#c7cbd5;stroke-width:1.35}
+.map-node .node-label,.map-node.active .node-label{font:700 17px var(--sans);letter-spacing:.15px;fill:#262e47}
+.map-node.active .node-label-bg{fill:#353da9!important;stroke:#353da9!important}
+.map-node.active .node-label{fill:#fff!important}
+.map-node.active .node-inner{fill:#353da9!important}
+.detail-card>#detailContent{padding:31px 24px 26px!important}
+.region-heading h2{font-size:clamp(22px,1.7vw,29px)}
+.region-description,.all-intro{font-size:14px;line-height:1.65}
+.market-pill{font-size:12px;padding:8px 10px}
+.markets-heading{font-size:11px}
+.product-row{padding:15px}
+.product-title{font-size:14px}
+.product-section-title{font-size:11px}
+.summary-chip{padding:13px;min-height:69px}
+.summary-chip strong{font-size:12px}
+.summary-chip span{font-size:11px}
+@media(max-width:1050px){
+ .page-shell{width:94%}
+ .explorer-grid{grid-template-columns:minmax(0,1.3fr) minmax(315px,1fr)}
+ .map-card,.detail-card{height:500px!important}
+ .map-node .node-label{font-size:18px}
+}
+@media(max-width:900px){
+ .page-shell{width:94%;max-width:800px}
+ .explorer-grid{grid-template-columns:1fr;gap:14px}
+ .map-card{height:clamp(360px,60vw,530px)!important}
+ .detail-card{height:470px!important}
+ .world-map-wrap{padding:8px!important}
+ .region-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .region-tab{font-size:12px}
+ .map-node .node-label{font-size:18px}
+}
+@media(max-width:600px){
+ .page-shell{width:auto;margin:0 14px}
+ .hero h1{font-size:35px}
+ .region-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .map-card{height:310px!important}
+ .world-map{width:110%!important;max-width:none!important;flex:0 0 110%}
+ .map-node .node-label{font-size:20px}
+ .detail-card{height:min(560px,77dvh)!important;min-height:340px!important}
+ .detail-card>#detailContent{padding:24px 16px 20px!important}
+ .region-description,.all-intro{font-size:13px}
+ .market-pill{font-size:11px}
+}
