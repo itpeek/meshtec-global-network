@@ -281,6 +281,7 @@ function selectCountry(code){
   const oldScroll=scroller.scrollTop;
   renderDetail();
   scroller.scrollTop=oldScroll;
+  window.dispatchEvent(new CustomEvent('meshtec:country', {detail:{region:active,country:selectedCountryCode}}));
 }
 
 function renderDetail() {
@@ -343,6 +344,7 @@ function select(id) {
   selectedCountryCode = null;
   updateMap();
   renderDetail();
+  window.dispatchEvent(new CustomEvent('meshtec:region', {detail:{region:active}}));
   history.replaceState(null, '', id === 'all' ? '#explore' : `#${id}`);
 }
 
@@ -367,3 +369,11 @@ window.addEventListener('hashchange', () => {
   const id = location.hash.slice(1);
   if (ORDER.includes(id) && id !== active) select(id);
 });
+/* Public bridge for the optional 3D globe; the SVG stays available as a fallback. */
+window.MESHTECNetwork={
+  selectRegion:select,
+  selectCountry:(region,code)=>{if(!ORDER.includes(region)||region==='all')return; if(active!==region)select(region); if(code)selectCountry(code);},
+  getCurrent:()=>({region:active,country:selectedCountryCode}),
+  getLocations:()=>NETWORK_LOCATIONS.map(({code,name,region})=>({code,name,region})),
+  getRegions:()=>ORDER.slice(1).map(id=>({id,name:REGIONS[id].name}))
+};
