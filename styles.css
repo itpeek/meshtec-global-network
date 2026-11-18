@@ -309,3 +309,35 @@ html,body{background:#fff;color:#262626}
   .detail-card>#detailContent{padding:14px}
   .region-heading h2{font-size:19px}
 }
+
+
+/* 3D globe + active continent state */
+.world-map-wrap{position:relative;isolation:isolate;overflow:hidden!important}
+.meshtec-globe{position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.world-map-wrap.globe-ready .meshtec-globe{opacity:1;pointer-events:auto}
+.world-map-wrap.globe-ready #worldMap{visibility:hidden;pointer-events:none}
+.meshtec-globe canvas{display:block;outline:0}
+.globe-controls{position:absolute;z-index:3;bottom:12px;right:12px;display:none;gap:4px;flex-direction:column}
+.world-map-wrap.globe-ready .globe-controls{display:flex}
+.globe-controls button{appearance:none;border:1px solid #e2e4ee;border-radius:4px;background:#ffffffeb;color:#2e3192;width:29px;height:29px;display:flex;align-items:center;justify-content:center;font:600 17px var(--sans);cursor:pointer;box-shadow:0 2px 8px #18206110}
+.globe-controls button:hover{color:#fff;background:#353da9;border-color:#353da9}
+.globe-controls button:focus-visible{outline:2px solid #353da9;outline-offset:2px}
+.globe-tooltip{background:#fff;border:1px solid #e2e2ed;padding:6px 9px;font:12px var(--sans);color:#2e3192;box-shadow:0 5px 12px #10185812;pointer-events:none}
+.map-region.active{fill:#353da9!important;stroke:#fff!important;opacity:1!important}
+.map-region.dimmed{opacity:1!important}
+.map-node.active .node-label-bg{fill:#353da9!important;stroke:#353da9!important}
+.map-node.active .node-label{fill:#fff!important}
+.map-node.active .node-inner{fill:#353da9!important}
+/* Right panel breathing room; retains independent internal scroll */
+.detail-card>#detailContent{padding:27px 19px 24px!important}
+.detail-top{margin-bottom:17px}
+.all-placeholder{min-height:calc(100% - 48px)}
+.region-heading.region-heading-clean{margin-top:10px;margin-bottom:10px}
+.all-placeholder .region-heading.region-heading-clean{margin-top:0}
+.region-description{margin-bottom:16px}
+@media(max-width:900px){.detail-card>#detailContent{padding:24px 20px!important}}
+@media(max-width:600px){
+ .detail-card>#detailContent{padding:23px 16px 20px!important}
+ .globe-controls{bottom:9px;right:9px}
+ .globe-controls button{width:28px;height:28px}
+}
