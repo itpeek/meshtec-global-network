@@ -6,6 +6,7 @@ const REGIONS = {
     markets:'Southeast Asia, East Asia, ANZ', focus:'Architectural systems', standards:'Project-specific',
     node:[824,267], label:[836,306],
     products:[
+      {name:'Perforated Metal & Aluminium',icon:'',perforated:true,description:'Perforated metal and aluminium panel concepts for architectural facades, decorative screening, ceilings and custom project applications.',applications:['Architectural facades','Decorative screening','Ceiling panels','Custom perforated details']},
       {name:'Architectural Mesh Panels',icon:'▦',description:'Woven and architectural mesh panel concepts for architectural facades, screening and interior applications.',applications:['Architectural facades','Interior partitions','Decorative screening']},
       {name:'Facade & Screening Systems',icon:'▱',description:'Mesh-based screening systems for the external envelope and building design.',applications:['Facade screening','Balustrade infill','Sun shading']},
       {name:'Security & Ventilation Panels',icon:'⬡',description:'Security-oriented mesh and ventilation panel configurations, subject to local project requirements.',applications:['Ventilation','Security screening','Service enclosures']},
@@ -19,6 +20,7 @@ const REGIONS = {
     markets:'Western, Central & Northern Europe', focus:'Architectural detailing', standards:'Project-specific',
     node:[559,147], label:[555,185],
     products:[
+      {name:'Perforated Metal & Aluminium',icon:'',perforated:true,description:'Perforated metal and aluminium panel concepts for architectural facades, decorative screening, ceilings and custom project applications.',applications:['Architectural facades','Decorative screening','Ceiling panels','Custom perforated details']},
       {name:'Architectural Woven Mesh',icon:'▦',description:'Metal mesh concepts for architectural and interior-design specifications.',applications:['Facades','Ceilings','Feature walls']},
       {name:'Exterior Screening',icon:'▱',description:'Mesh screening concepts integrated into external building envelopes.',applications:['Solar screens','Facade layers','Balustrades']},
       {name:'Custom Mesh Fabrication',icon:'⚙',description:'Conceptual made-to-measure mesh assemblies and detailing options.',applications:['Custom sizes','Edge framing','System integration']},
@@ -31,6 +33,7 @@ const REGIONS = {
     markets:'USA, Canada, Mexico', focus:'Commercial screening', standards:'Project-specific',
     node:[218,164], label:[218,200],
     products:[
+      {name:'Perforated Metal & Aluminium',icon:'',perforated:true,description:'Perforated metal and aluminium panel concepts for architectural facades, decorative screening, ceilings and custom project applications.',applications:['Architectural facades','Decorative screening','Ceiling panels','Custom perforated details']},
       {name:'Security Mesh Systems',icon:'⬡',description:'Durable mesh system concepts for applications that require a defined security specification.',applications:['Building envelope','Perimeter screening','Controlled access']},
       {name:'Commercial Facade Panels',icon:'▦',description:'Architectural mesh infill for commercial facade and building screening.',applications:['Office buildings','Retail exteriors','Parking structures']},
       {name:'Ventilation & Louver Mesh',icon:'≋',description:'Mesh design concepts for architectural ventilation and exterior equipment screening.',applications:['Ventilation openings','Mechanical screens','Service rooms']},
@@ -43,6 +46,7 @@ const REGIONS = {
     markets:'Brazil, Chile and wider LATAM', focus:'Facade & exterior', standards:'Project-specific',
     node:[334,355], label:[339,391],
     products:[
+      {name:'Perforated Metal & Aluminium',icon:'',perforated:true,description:'Perforated metal and aluminium panel concepts for architectural facades, decorative screening, ceilings and custom project applications.',applications:['Architectural facades','Decorative screening','Ceiling panels','Custom perforated details']},
       {name:'Exterior Architectural Mesh',icon:'▦',description:'Facade and exterior mesh panels intended for varied building typologies.',applications:['Commercial buildings','Hotels','Public buildings']},
       {name:'Sun Screening Panels',icon:'☼',description:'Screen-based shading concepts for architectural envelopes.',applications:['Solar shading','Exterior screens','Open-air structures']},
       {name:'Balustrade Infill Mesh',icon:'▱',description:'Mesh infill concepts for architectural guardrails and balustrades.',applications:['Stairs','Balconies','Terraces']},
@@ -55,6 +59,7 @@ const REGIONS = {
     markets:'United Arab Emirates and wider Middle East (inquiry-based)', focus:'Architectural screening', standards:'Project-specific',
     node:[685,245], label:[720,281],
     products:[
+      {name:'Perforated Metal & Aluminium',icon:'',perforated:true,description:'Perforated metal and aluminium panel concepts for architectural facades, decorative screening, ceilings and custom project applications.',applications:['Architectural facades','Decorative screening','Ceiling panels','Custom perforated details']},
       {name:'Architectural Solar Screens',icon:'☼',description:'Mesh screening concepts for building facades and shading applications.',applications:['Sun shading','Building facades','Hospitality projects']},
       {name:'Decorative Metal Mesh',icon:'▦',description:'Design-focused mesh concepts for exterior and interior architectural spaces.',applications:['Hospitality interiors','Facade features','Architectural screening']},
       {name:'Security & Privacy Screens',icon:'⬡',description:'Project-specific mesh screening concepts for privacy and security.',applications:['Privacy screening','Security applications','Exterior enclosures']},
@@ -67,6 +72,7 @@ const REGIONS = {
     markets:'Sub-Saharan Africa and Indian Ocean locations', focus:'Exterior mesh & infrastructure', standards:'Project-specific',
     node:[566,343], label:[560,380],
     products:[
+      {name:'Perforated Metal & Aluminium',icon:'',perforated:true,description:'Perforated metal and aluminium panel concepts for architectural facades, decorative screening, ceilings and custom project applications.',applications:['Architectural facades','Decorative screening','Ceiling panels','Custom perforated details']},
       {name:'Architectural Solar Screens',icon:'☼',description:'Mesh screen systems that can support exterior shading and facade concepts.',applications:['Sun shading','Building facades','Hospitality projects']},
       {name:'Decorative Metal Mesh',icon:'▦',description:'Decorative woven mesh concepts for design-led public and private spaces.',applications:['Hospitality projects','Retail architecture','Feature ceilings']},
       {name:'Perimeter & Security Screens',icon:'⬡',description:'Mesh screen applications for perimeter, privacy and project-specific security use.',applications:['Privacy screening','Secure areas','Service zones']},
@@ -82,6 +88,8 @@ const NETWORK_LOCATIONS=[
 ['AE','United Arab Emirates','middle-east',652,265],['GH','Ghana','africa',509,317],['NG','Nigeria','africa',546,319],['UG','Uganda','africa',596,337],['KE','Kenya','africa',619,346],['TZ','Tanzania','africa',608,366],['MW','Malawi','africa',615,392],['ZM','Zambia','africa',585,396],['ZW','Zimbabwe','africa',594,419],['BW','Botswana','africa',566,433],['NA','Namibia','africa',543,431],['ZA','South Africa','africa',567,463],['LS','Lesotho','africa',581,455],['MZ','Mozambique','africa',618,422],['SZ','Eswatini (Swaziland)','africa',600,444],['MU','Mauritius','africa',677,423],
 ['IN','India','asia-pacific',735,285],['CN','China','asia-pacific',821,223],['TH','Thailand','asia-pacific',781,283],['VN','Vietnam','asia-pacific',806,284],['MY','Malaysia','asia-pacific',786,331],['SG','Singapore','asia-pacific',795,343],['PH','Philippines','asia-pacific',853,294],['JP','Japan','asia-pacific',919,218],['PI','Pacific Islands','asia-pacific',1017,341],['AU','Australia','asia-pacific',902,432],['NZ','New Zealand','asia-pacific',1000,465]
 ].map(([code,name,region,x,y])=>({code,name,region,x,y}));
+
+const PERFORATED_ICON = '<svg class="perforated-icon" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1.75" y="1.75" width="20.5" height="20.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><circle cx="6.5" cy="6.5" r="1.6"/><circle cx="12" cy="6.5" r="1.6"/><circle cx="17.5" cy="6.5" r="1.6"/><circle cx="6.5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="17.5" cy="12" r="1.6"/><circle cx="6.5" cy="17.5" r="1.6"/><circle cx="12" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></g></svg>';
 
 const ORDER = ['all','asia-pacific','europe','north-america','south-america','middle-east','africa'];
 const mapShapes = document.getElementById('mapShapes');
@@ -226,7 +234,7 @@ function productAccordionItem(product, index) {
   return `
     <div class="product-accordion ${expanded ? 'is-open' : ''}">
       <button type="button" class="product-row accordion-toggle" data-product="${index}" aria-expanded="${expanded}">
-        <span class="product-glyph">${product.icon}</span>
+        <span class="product-glyph">${product.perforated ? PERFORATED_ICON : escapeHtml(product.icon)}</span>
         <span class="product-title">${escapeHtml(product.name)}</span>
         <span class="product-plus" aria-hidden="true">${expanded ? '−' : '+'}</span>
       </button>
@@ -354,7 +362,7 @@ function toggleProduct(index) {
 makeMap();
 makeTabs();
 const initial = location.hash.slice(1);
-select(ORDER.includes(initial) ? initial : 'asia-pacific');
+select(ORDER.includes(initial) ? initial : 'all');
 window.addEventListener('hashchange', () => {
   const id = location.hash.slice(1);
   if (ORDER.includes(id) && id !== active) select(id);
