@@ -57,7 +57,7 @@
       .atmosphereAltitude(0.12)
       .backgroundColor("rgba(0,0,0,0)")
       .showGraticules(false)
-      .globeMaterial(new THREE.MeshPhongMaterial({color:0xfafafa,shininess:14,specular:0xcccccc}))
+      .globeImageUrl(null)
       .polygonAltitude(0.006)
       .polygonStrokeColor(()=>"#ffffff")
       .polygonSideColor(()=>"#d7d9e8")
@@ -70,6 +70,8 @@
       .labelColor(()=>"#393939").labelSize(0.72)
       .labelAltitude(0.013).labelResolution(2)
       .labelDotRadius(0.23).labelDotOrientation(()=> "bottom");
+    const mat=globe.globeMaterial();
+    if(mat?.color)mat.color.set("#f8f9fb");
     globe.controls().enableDamping=true;
     globe.controls().dampingFactor=0.08;
     globe.controls().autoRotate=false;
