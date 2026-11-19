@@ -310,7 +310,7 @@ function renderDetail() {
     </div>
     <p class="region-description">${escapeHtml(region.description)}</p>
     ${countryDirectory(active)}
-    <div class="product-section-title">${country ? 'PRODUCT CATEGORIES / '+escapeHtml(country.name.toUpperCase()) : 'MANUFACTURING FOCUS / PRODUCT CATEGORIES'}</div>
+    <div class="product-section-title">'MANUFACTURING FOCUS / PRODUCT CATEGORIES'</div>
     ${country ? `<div class="country-context"><strong>${escapeHtml(country.name)}</strong><span>Demo product profile · Unverified country-level production</span><button type="button" class="country-clear" id="clearCountry">Clear selection ×</button></div>` : ''}
     <div class="product-list">
       ${products.length ? products.map((product, index) => productAccordionItem(product, index)).join('') : '<p class="market-empty">No product profile configured for this location.</p>'}
