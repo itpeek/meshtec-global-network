@@ -405,3 +405,39 @@ html,body{background:#fff;color:#262626}
  .region-description,.all-intro{font-size:13px}
  .market-pill{font-size:11px}
 }
+
+
+/* Global country + clickable state/province directory */
+.geo-directory .markets-heading{margin-bottom:12px}
+.directory-label{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:13px 0 9px;color:#344270;font-size:10px;letter-spacing:.55px;font-weight:700}
+.directory-label span:last-child{font-size:9px;color:#72809b;font-weight:500;letter-spacing:0}
+.directory-label .directory-key{width:7px;height:7px;border-radius:50%;background:#343da9;margin-right:5px;flex:0 0 7px}
+.directory-extra{border-top:1px solid #e8ebf2;padding-top:15px;margin-top:15px}
+.directory-search{display:block;width:100%;min-height:36px;margin:0 0 12px;padding:9px 12px;border:1px solid #dfe4ef;border-radius:4px;background:#fff;color:#253252;font:12px var(--sans)}
+.directory-search:focus{border-color:#4149ab;outline:2px solid #4149ab20}
+.directory-more{display:inline-flex;justify-content:center;align-items:center;margin:10px 0 4px;padding:8px 12px;border:1px solid #dce1ed;background:#f7f8fc;border-radius:3px;color:#333ba5;font:600 11px var(--sans);cursor:pointer}
+.directory-more:hover{background:#eceffa}
+.directory-hint{margin:9px 0 2px;color:#8390a0;font-size:10px;line-height:1.6}
+.market-pill .directory-dot{background:#b7bed4}
+.geo-directory .market-pill{font-size:12px;min-height:30px;padding:7px 10px}
+.geo-directory .market-pill.is-selected{background:#353da9;color:#fff;border-color:#353da9}
+.geo-directory .market-pill.is-selected .market-pill-dot{background:#fff}
+.state-directory{margin:20px 0 12px;padding:15px 13px;border:1px solid #dfe4f2;background:#f8f9fd;border-radius:4px}
+.state-directory-title{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;font-weight:750;letter-spacing:.35px;color:#252f81}
+.state-directory-title span{white-space:nowrap;font-weight:500;font-size:10px;color:#727b9a}
+.state-directory-country{margin:8px 0 13px;color:#2c344a;font-size:13px;font-weight:600}
+.state-pills{display:flex;flex-wrap:wrap;gap:6px}
+.state-pill{border:1px solid #dde2ed;background:#fff;color:#384461;border-radius:3px;padding:8px 11px;min-height:31px;text-align:left;font:11px var(--sans);cursor:pointer}
+.state-pill:hover{border-color:#7b83c8;background:#f1f3fa}
+.state-pill.is-selected,.state-pill[aria-pressed="true"]{background:#353da9;border-color:#353da9;color:#fff}
+.geo-map-dot{fill:#3b46a7;stroke:#fff;stroke-width:2;cursor:pointer;opacity:.82;transition:r .18s,fill .18s}
+.geo-map-dot:hover,.geo-map-dot:focus-visible{r:11;fill:#eb394e;outline:none}
+.geo-selected-halo{fill:#343da9;fill-opacity:.2;stroke:#343da9;stroke-width:1.5;pointer-events:none}
+.geo-selected-dot{fill:#343da9;stroke:#fff;stroke-width:3;pointer-events:none}
+.geo-selected-label{font:700 18px var(--sans);fill:#292f86;paint-order:stroke;stroke:#fff;stroke-width:4;pointer-events:none}
+@media(max-width:600px){
+ .directory-label{font-size:9px}
+ .geo-directory .market-pill{font-size:11px}
+ .state-directory{padding:13px 11px}
+ .state-pill{font-size:11px}
+}
