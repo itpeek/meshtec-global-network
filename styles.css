@@ -441,3 +441,25 @@ html,body{background:#fff;color:#262626}
  .state-directory{padding:13px 11px}
  .state-pill{font-size:11px}
 }
+
+
+/* Normalize all category icons to the perforated icon's visual size. */
+.product-accordion .product-glyph{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  min-width:28px;
+  height:28px;
+  flex:0 0 28px;
+  font-family:"Segoe UI Symbol","Noto Sans Symbols 2",Arial,sans-serif;
+  font-size:27px;
+  font-weight:600;
+  line-height:1;
+  color:#343fa8;
+}
+.product-accordion .product-glyph .perforated-icon{
+  width:24px;
+  height:24px;
+  flex:0 0 24px;
+}
