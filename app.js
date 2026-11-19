@@ -247,8 +247,9 @@ function productAccordionItem(product, index) {
   return `
     <div class="product-accordion ${expanded ? 'is-open' : ''}">
       <button type="button" class="product-row accordion-toggle" data-product="${index}" aria-expanded="${expanded}">
-        <span class="product-text"><span class="product-title">${escapeHtml(product.name)}</span><span class="product-subtitle">${escapeHtml(product.subtitle || '')}</span></span>
-        <span class="product-chevron" aria-hidden="true"></span>
+        <span class="product-glyph">${product.perforated ? PERFORATED_ICON : escapeHtml(product.icon)}</span>
+        <span class="product-title">${escapeHtml(product.name)}</span>
+        <span class="product-plus" aria-hidden="true">${expanded ? '−' : '+'}</span>
       </button>
       <div class="product-panel" ${expanded ? '' : 'hidden'}>
         <div class="product-panel-inner">
@@ -368,7 +369,7 @@ function toggleProduct(index) {
     item.classList.toggle('is-open', expanded);
     const trigger = item.querySelector('.accordion-toggle');
     trigger.setAttribute('aria-expanded', String(expanded));
-    // Chevron direction follows the open state through CSS.
+    item.querySelector('.product-plus').textContent = expanded ? '−' : '+';
     item.querySelector('.product-panel').hidden = !expanded;
   });
 }
