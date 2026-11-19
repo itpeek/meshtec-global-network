@@ -21,16 +21,15 @@
   function statePill(s){return '<button type="button" class="state-pill '+(chosenState===s.code?'is-selected':'')+'" data-state="'+escapeHtml(s.code)+'" aria-pressed="'+(chosenState===s.code)+'">'+escapeHtml(s.name)+'</button>';}
   countryDirectory=function(region){
     var records=extraCountries.filter(function(p){return p.region===region;});
-    var networks=records.filter(function(p){return p.network;}).sort(function(a,b){return a.name.localeCompare(b.name);});
-    var other=records.filter(function(p){return !p.network;}).sort(function(a,b){return a.name.localeCompare(b.name);});
+    var sorted=records.slice().sort(function(a,b){return Number(b.network)-Number(a.network)||a.name.localeCompare(b.name);});
+    var networkCount=sorted.filter(function(p){return p.network;}).length;
     var current=selectedCountry(), states=current?(stateMap.get(current.code)||[]):[];
+    var visible=showAllCountries?sorted:sorted.slice(0,networkCount+10);
     var html='<section class="markets-section geo-directory"><div class="markets-heading"><span>COUNTRIES & NETWORK LOCATIONS</span><span class="markets-count">'+records.length+' COUNTRIES / LOCATIONS</span></div>';
-    if(networks.length) html+='<div class="directory-label"><span class="directory-key"></span>NETWORK REFERENCES <span>'+networks.length+'</span></div><div class="market-pills">'+networks.map(pill).join('')+'</div>';
-    html+='<div class="directory-label directory-extra">ALL COUNTRIES / GEOGRAPHIC DIRECTORY <span>'+other.length+'</span></div>';
-    html+='<input class="directory-search" id="countrySearch" type="search" placeholder="Search countries..." aria-label="Search countries" autocomplete="off">';
-    html+='<div class="market-pills" id="extraCountries">'+other.slice(0,showAllCountries?other.length:10).map(pill).join('')+'</div>';
-    if(other.length>10)html+='<button type="button" class="directory-more" id="showCountries">'+(showAllCountries?'Show fewer countries':'Show all '+other.length+' countries')+'</button>';
-    html+='<p class="directory-hint">Other countries are geographic reference data, not confirmed MESHTEC network locations.</p>';
+    html+='<input class="directory-search" id="countrySearch" type="search" placeholder="Search countries..." aria-label="Search all countries in this region" autocomplete="off">';
+    html+='<div class="market-pills" id="countryList">'+visible.map(pill).join('')+'</div>';
+    if(sorted.length>networkCount+10)html+='<button type="button" class="directory-more" id="showCountries">'+(showAllCountries?'Show fewer countries':'Show all '+records.length+' countries')+'</button>';
+    html+='<p class="directory-hint"><span class="network-legend-dot"></span> Network references appear first. Other countries are geographic reference data, not confirmed MESHTEC network locations.</p>';
     if(current){
       html+='<section class="state-directory"><div class="state-directory-title">STATES / PROVINCES / REGIONS <span>'+states.length+' AREAS</span></div>';
       html+='<p class="state-directory-country">'+escapeHtml(current.name)+(chosenArea()?' / '+escapeHtml(chosenArea().name):'')+'</p>';
@@ -77,9 +76,10 @@
     var countriesInput=detail.querySelector('#countrySearch');
     if(countriesInput)countriesInput.addEventListener('input',function(){
       var q=this.value.toLocaleLowerCase().trim();
-      var list=detail.querySelector('#extraCountries');if(!list)return;
-      var data=extraCountries.filter(function(p){return p.region===active&&!p.network&&p.name.toLocaleLowerCase().includes(q);}).sort(function(a,b){return a.name.localeCompare(b.name);});
-      list.innerHTML=data.slice(0,q?data.length:showAllCountries?data.length:10).map(pill).join('')||'<span class="market-empty">No countries found.</span>';
+      var list=detail.querySelector('#countryList');if(!list)return;
+      var data=extraCountries.filter(function(p){return p.region===active&&p.name.toLocaleLowerCase().includes(q);}).sort(function(a,b){return Number(b.network)-Number(a.network)||a.name.localeCompare(b.name);});
+      var networkCount=data.filter(function(p){return p.network;}).length;
+      list.innerHTML=data.slice(0,q?data.length:showAllCountries?data.length:networkCount+10).map(pill).join('')||'<span class="market-empty">No countries found.</span>';
       wireCountryButtons(list);
     });
     var statesInput=detail.querySelector('#stateSearch');
