@@ -441,3 +441,34 @@ html,body{background:#fff;color:#262626}
  .state-directory{padding:13px 11px}
  .state-pill{font-size:11px}
 }
+
+
+/* Client reference: blue product category tiles with two-line titles and chevrons. */
+.product-section-title{margin:21px 0 15px!important;letter-spacing:.6px}
+.product-list{display:flex;flex-direction:column;gap:14px!important}
+.product-accordion{background:#30348f!important;border:1px solid #30348f!important;border-radius:0!important;overflow:hidden;box-shadow:none!important;transition:background-color .18s ease,border-color .18s ease}
+.product-accordion:hover,.product-accordion.is-open{background:#282d81!important;border-color:#282d81!important;box-shadow:none!important}
+.product-accordion .product-row{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:24px 25px!important;width:100%;min-height:86px;
+  background:transparent!important;color:#fff!important;border:0!important;
+  text-align:left;transform:none!important;
+}
+.product-accordion .product-text{display:flex;flex:1;min-width:0;flex-direction:column;gap:3px}
+.product-accordion .product-title{display:block;color:#fff!important;font:700 clamp(16px,1.3vw,20px)/1.22 var(--sans)!important;letter-spacing:-.25px}
+.product-accordion .product-subtitle{display:block;color:#bdc0dc!important;font:400 clamp(12px,1vw,15px)/1.45 var(--sans)!important}
+.product-chevron{position:relative;display:block;width:20px;height:20px;flex:0 0 20px;transition:transform .22s ease}
+.product-chevron:before{content:"";position:absolute;width:7px;height:7px;border-right:1.5px solid #fff;border-top:1.5px solid #fff;transform:rotate(45deg);top:6px;left:5px}
+.product-accordion.is-open .product-chevron{transform:rotate(90deg)}
+.product-accordion .product-panel{background:#fff!important;border:1px solid #d9dded!important;border-top:0!important}
+.product-accordion .product-panel-inner{padding:17px 22px 20px!important}
+.product-accordion .product-description{color:#49566f!important;margin:0 0 13px!important;font:400 13px/1.75 var(--sans)}
+.product-accordion .product-apps-label{color:#30348f!important}
+.product-accordion .product-apps ul{color:#46536f!important}
+@media(max-width:600px){
+ .product-list{gap:10px!important}
+ .product-accordion .product-row{min-height:77px;padding:18px 17px!important}
+ .product-accordion .product-title{font-size:16px!important}
+ .product-accordion .product-subtitle{font-size:12px!important}
+ .product-accordion .product-panel-inner{padding:14px 17px 16px!important}
+}
