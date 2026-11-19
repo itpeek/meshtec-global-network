@@ -14,7 +14,6 @@
   window.MESHTEC_STATES.forEach(function(s){if(!stateMap.has(s[0]))stateMap.set(s[0],[]);stateMap.get(s[0]).push({code:s[1],name:s[2],lat:s[3],lng:s[4]});});
   stateMap.forEach(function(items){items.sort(function(a,b){return a.name.localeCompare(b.name);});});
   var chosenState=null,showAllCountries=false,showAllStates=false;
-  var markers=document.createElementNS('http://www.w3.org/2000/svg','g');markers.id='geoMapMarkers';document.getElementById('worldMap').appendChild(markers);
   var nativeRender=renderDetail,nativeSelect=select;
   selectedCountry=function(){return extraCountries.find(function(p){return p.region===active && p.code===selectedCountryCode;})||null;};
   function chosenArea(){return (stateMap.get(selectedCountryCode)||[]).find(function(p){return p.code===chosenState;})||null;}
@@ -48,7 +47,6 @@
     var scroll=detail.scrollTop;
     renderDetail();
     detail.scrollTop=scroll;
-    drawMarkers();
   }
   selectCountry=function(code){
     var p=extraCountries.find(function(x){return x.region===active && x.code===code;});
@@ -62,31 +60,7 @@
     if(!ORDER.includes(id))return;
     chosenState=null;showAllCountries=false;showAllStates=false;
     nativeSelect(id);
-    drawMarkers();
   };
-  function dot(x,y,code,label){
-    var c=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',8);c.setAttribute('class','geo-map-dot');
-    c.setAttribute('tabindex','0');c.setAttribute('role','button');c.setAttribute('aria-label','Select '+label);
-    c.addEventListener('click',function(e){e.stopPropagation();selectCountry(code);});
-    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();selectCountry(code);}});
-    markers.appendChild(c);
-  }
-  function project(lat,lng){return [Math.max(8,Math.min(1092,550+lng*3.04)),Math.max(8,Math.min(532,285-lat*3.12))];}
-  function drawMarkers(){
-    markers.replaceChildren();
-    if(active==='all')return;
-    NETWORK_LOCATIONS.filter(function(p){return p.region===active;}).forEach(function(p){dot(p.x,p.y,p.code,p.name);});
-    var country=selectedCountry();if(!country)return;
-    var state=chosenArea(),obj=state||country,point;
-    if(state||!Number.isFinite(country.x)||!Number.isFinite(country.y))point=project(obj.lat,obj.lng);
-    else point=[country.x,country.y];
-    if(!Number.isFinite(point[0])||!Number.isFinite(point[1]))return;
-    var ns='http://www.w3.org/2000/svg';
-    var halo=document.createElementNS(ns,'circle');halo.setAttribute('cx',point[0]);halo.setAttribute('cy',point[1]);halo.setAttribute('r',16);halo.setAttribute('class','geo-selected-halo');markers.appendChild(halo);
-    var marker=document.createElementNS(ns,'circle');marker.setAttribute('cx',point[0]);marker.setAttribute('cy',point[1]);marker.setAttribute('r',7);marker.setAttribute('class','geo-selected-dot');markers.appendChild(marker);
-    var title=document.createElementNS(ns,'text');title.setAttribute('x',Math.max(70,Math.min(1030,point[0])));title.setAttribute('y',point[1]-22);title.setAttribute('text-anchor','middle');title.setAttribute('class','geo-selected-label');title.textContent=state?state.name:country.name;markers.appendChild(title);
-  }
   function wireCountryButtons(scope){
     (scope||detail).querySelectorAll('[data-country]').forEach(function(btn){btn.addEventListener('click',function(){selectCountry(btn.dataset.country);});});
   }
@@ -117,10 +91,10 @@
     });
     var showCountries=detail.querySelector('#showCountries');if(showCountries)showCountries.addEventListener('click',function(){showAllCountries=!showAllCountries;refresh();});
     var showStates=detail.querySelector('#showStates');if(showStates)showStates.addEventListener('click',function(){showAllStates=!showAllStates;refresh();});
-    var clear=detail.querySelector('#clearCountry');if(clear)clear.addEventListener('click',function(){chosenState=null;drawMarkers();});
+    var clear=detail.querySelector('#clearCountry');if(clear)clear.addEventListener('click',function(){chosenState=null;});
   };
   // The original app has rendered already; synchronize UI and map once.
-  renderDetail();drawMarkers();
+  renderDetail();
   window.MESHTECNetwork.selectRegion=select;
   window.MESHTECNetwork.selectCountry=function(region,code){if(active!==region)select(region);if(code)selectCountry(code);};
   window.MESHTECNetwork.getLocations=function(){return extraCountries.map(function(p){return {code:p.code,name:p.name,region:p.region,network:p.network};});};
