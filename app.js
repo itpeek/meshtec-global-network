@@ -81,6 +81,19 @@ const REGIONS = {
   }
 };
 
+/* Client-supplied Manufacturing Focus / Product Categories mockup.
+   Geographic coverage and country-product availability remain unverified demo assignments. */
+const CLIENT_PRODUCT_CATEGORIES = [
+  {name:'Ventilation Door',subtitle:'Secure Ventilation Door Systems',description:'Ventilation door systems designed to combine airflow and secure access.',applications:['Ventilation doors','Secure airflow','Building openings'],icon:'▤'},
+  {name:'Insect Screen',subtitle:'Insect Protection with Natural Airflow',description:'Insect screening solutions that allow natural airflow while providing a barrier against insects.',applications:['Windows','Doors','Insect protection'],icon:'▦'},
+  {name:'Hurricane / Storm Door',subtitle:'Extreme Weather Protection Systems',description:'Storm and hurricane door concepts intended for projects requiring weather-resilient protective systems.',applications:['Weather protection','Door systems','Exterior openings'],icon:'▱'},
+  {name:'JAWS Family',subtitle:'Advanced Security Screen Systems',description:'Security screen systems in the JAWS product family.',applications:['Security screens','Windows','Doors'],icon:'⬡'},
+  {name:'Pet Screen & Pet Way',subtitle:'Pet-Friendly Screen & Access Solutions',description:'Pet-friendly screening and access concepts for residential applications.',applications:['Pet-friendly screens','Pet access','Residential doors'],icon:'⌂'},
+  {name:'Cavity Ventilation',subtitle:'Ventilation Solutions for Building Cavities',description:'Ventilation solutions for building cavities and architectural spaces.',applications:['Building cavities','Architectural ventilation','Airflow management'],icon:'≋'},
+  {name:'Perforated Metal & Aluminium',subtitle:'Architectural Perforated Metal Solutions',perforated:true,description:'Perforated metal and aluminium panel concepts for architectural facades, screening and custom applications.',applications:['Architectural facades','Decorative screening','Perforated panels','Custom details'],icon:''}
+];
+Object.values(REGIONS).forEach(region => { region.products = CLIENT_PRODUCT_CATEGORIES.map(product=>({...product})); });
+
 /* Published global network locations from MESHTEC Fabricated Product Brochure (2025).
    Entries are network labels, NOT claims of factories or SKU availability. */
 const NETWORK_LOCATIONS=[
@@ -234,9 +247,8 @@ function productAccordionItem(product, index) {
   return `
     <div class="product-accordion ${expanded ? 'is-open' : ''}">
       <button type="button" class="product-row accordion-toggle" data-product="${index}" aria-expanded="${expanded}">
-        <span class="product-glyph">${product.perforated ? PERFORATED_ICON : escapeHtml(product.icon)}</span>
-        <span class="product-title">${escapeHtml(product.name)}</span>
-        <span class="product-plus" aria-hidden="true">${expanded ? '−' : '+'}</span>
+        <span class="product-text"><span class="product-title">${escapeHtml(product.name)}</span><span class="product-subtitle">${escapeHtml(product.subtitle || '')}</span></span>
+        <span class="product-chevron" aria-hidden="true"></span>
       </button>
       <div class="product-panel" ${expanded ? '' : 'hidden'}>
         <div class="product-panel-inner">
@@ -356,7 +368,7 @@ function toggleProduct(index) {
     item.classList.toggle('is-open', expanded);
     const trigger = item.querySelector('.accordion-toggle');
     trigger.setAttribute('aria-expanded', String(expanded));
-    item.querySelector('.product-plus').textContent = expanded ? '−' : '+';
+    // Chevron direction follows the open state through CSS.
     item.querySelector('.product-panel').hidden = !expanded;
   });
 }
